@@ -66,7 +66,7 @@ When the scale passes through its internal zero point:
 - **Serial zero**: send `z` over UART (115200 baud) to tare at current position.
 
 ## TouchDRO Bluetooth SPP
-- **BT name:** "CYD Lathe DRO"
+- **BT name:** "ReDRO"
 - **Phone pairing:** standard Bluetooth pairing (PIN 0000 or 1234)
 - **Protocol:** `x<counts>;y0;z0;w0;\n` at 25 Hz
 - **TouchDRO Scale Factor:** **100 counts/mm**
@@ -88,7 +88,4 @@ When the scale passes through its internal zero point:
 The `shahe_5403_protocol.md` flip-flop on bit 20 polarity (0=positive vs 1=positive) is likely due to the 74HC14 signal inversion — with the 74HC14 removed, we see the **native format**: sign=1 = positive.
 
 ## File Locations
-- **Working reader:** `/home/serg/cyddro/minimal_test/src/main.cpp` (sign-magnitude + tare + BT)
-- **Old spec:** `/home/serg/cyddro/shahe_5403_protocol.md` (bit 20 polarity reversed)
-- **DRO-fork ISR reader:** `/home/serg/cyddro/DRO-fork/src/bin6_reader.h` (needs update)
-- **TouchDRO BT plan:** `/home/serg/cyddro/FORK_PLAN.md` (BT protocol documented)
+- **Firmware:** `src/main.cpp` (timer-based poll, sign-magnitude + tare + BT)
