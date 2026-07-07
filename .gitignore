@@ -1,0 +1,15 @@
+.pio/
+.pioenvs/
+.piolibdeps/
+.piotests/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+DRO-fork/
+demo-tft-espi/
+DRO_PLAN.md
+FORK_PLAN.md
+*.bin
+*.elf
+sdkconfig
