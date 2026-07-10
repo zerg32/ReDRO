@@ -11,13 +11,11 @@ XPT2046 resistive touch, and Bluetooth SPP for TouchDRO.
 | **CYD** | ESP32-2432S028R Dual USB (USB-C + micro USB) |
 | **Display** | ST7789 on HSPI: MISO=12, MOSI=13, SCLK=14, CS=15, DC=2, BL=21 |
 | **Touch** | XPT2046 on software SPI: SCLK=25, MOSI=32, MISO=39, CS=33 |
-| **Scale** | Shahe BIN6: CLK=27, DATA=22, no 74HC14, direct 1.5V to GPIO |
+| **Scale 1** | Shahe BIN6: CLK=27, DATA=22, no 74HC14, direct 1.5V to GPIO |
+| **Scale 2** | Shahe BIN6: CLK=16, DATA=17 (RGB LED pins), direct 1.5V to GPIO |
 
 The 74HC14 line driver was removed. The scale's 0–1.5 V signal is wired
 straight to ESP32 GPIOs in INPUT mode (no pull-ups).
-
-A second scale can be enabled by uncommenting `SCALE2_CLK` / `SCALE2_DATA`
-in `src/main.cpp` and picking two unused GPIOs (e.g. 26 and 16).
 
 ## Features
 
@@ -163,10 +161,12 @@ CYD GPIO    Function
 17          RGB LED Blue
 19          SD MISO (unused)
 21          TFT Backlight
-22          Scale 1 DATA
-25          Touch SCLK (software SPI)
-26          Scale 2 CLK (optional, uncomment)
-27          Scale 1 CLK
+ 22          Scale 1 DATA
+ 25          Touch SCLK (software SPI)
+ 26          Speaker / DAC (free)
+ 27          Scale 1 CLK
+ 16          Scale 2 CLK / RGB LED Green
+ 17          Scale 2 DATA / RGB LED Blue
 32          Touch MOSI (software SPI)
 33          Touch CS (software SPI)
 39          Touch MISO (software SPI)

@@ -5,9 +5,9 @@
 
 #define SCALE1_CLK   GPIO_NUM_27
 #define SCALE1_DATA  GPIO_NUM_22
-// Second scale (uncomment when connected, pick unused pins like 26/16):
-//#define SCALE2_CLK   GPIO_NUM_26
-//#define SCALE2_DATA  GPIO_NUM_16
+// Second scale on RGB LED pins (16=GRN, 17=BLU)
+#define SCALE2_CLK   GPIO_NUM_16
+#define SCALE2_DATA  GPIO_NUM_17
 
 BluetoothSerial SerialBT;
 
